@@ -5,7 +5,7 @@ const { allChats, sendMessage, deleteMessage, deleteChat, chatSeen, getChat } = 
 router.use(requireAuth);
 
 router.get('/allChats', allChats);
-router.get('/getChat', getChat);
+router.get('/getChat/:chatId', getChat);
 router.post('/chatSeen', chatSeen);
 router.post('/sendMessage', sendMessage);
 router.delete('/deleteMessage', deleteMessage);

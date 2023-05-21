@@ -3,7 +3,6 @@ const { createToken } = require('../helpers/tokenHelper');
 
 const loginUser = async (req, res) => {
   const { identifier, password } = req.body;
-  console.log(req.body);
   try {
     const user = await User.login(identifier, password);
     const token = createToken(user._id);
@@ -44,7 +43,6 @@ const signupUser = async (req, res) => {
       }, token
     });
   } catch (error) {
-    console.log(error);
     return res.status(401).json({
       success: false,
       message: error.message

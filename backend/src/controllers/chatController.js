@@ -3,19 +3,19 @@ const Chat = require('../models/chatModel');
 const allChats = async (req, res) => {
   const _id = req.user._id;
   try {
-    const chats = await Chat.find({ users: { $in: [_id] } }).populate('users', 'username email name userImage').exec();;
+    const chats = await Chat.find({ users: { $in: [_id] } }).populate('users', 'username email name userImage').select('-messages').exec();;
 
-    res.status(200).json({ chats });
+    res.status(200).json({ data: chats });
   } catch (error) {
     res.status(400).json({ error });
   }
 };
 
 const getChat = async (req, res) => {
-  const { chatId } = req.body;
+  const { chatId } = req.params;
   try {
     const chat = await Chat.findById(chatId);
-    res.status(200).json({ success: true, messgae: 'Chat has been sent!!', body: chat });
+    res.status(200).json({ success: true, messgae: 'Chat has been sent!!', data: chat });
   } catch (error) {
     res.status(400).json({ error });
   }
@@ -44,7 +44,7 @@ const sendMessage = async (req, res) => {
       },
       { upsert: true, new: true }
     );
-    res.status(200).json({ chat });
+    res.status(200).json({ data: chat, success: true });
   } catch (error) {
     res.status(400).json({ error });
   }
