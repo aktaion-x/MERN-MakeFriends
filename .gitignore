@@ -2,6 +2,7 @@
 # backend
 /backend/node_modules
 /backend/.env
+.vscode
 
 # dependencies
 /frontend/node_modules
