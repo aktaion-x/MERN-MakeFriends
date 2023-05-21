@@ -1,0 +1,117 @@
+.column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  background-color: #fff;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+.column h2 {
+  margin: 25px 0 30px 0;
+}
+.column ul {
+  padding: 20px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  margin-bottom: 15px;
+  box-shadow: rgb(149 157 165 / 29%) 0px 0px 5px;
+}
+.column ul li {
+  box-shadow: #4000ef1a 0px 0px 5px;
+  border: 1px solid #eee;
+  padding: 10px 10px 10px 10px;
+  width: 285px;
+  margin-bottom: 10px;
+}
+.column ul li .user {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  border-radius: 0.3rem;
+}
+.column ul li .user-holder {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+}
+.column ul li .img {
+  height: 50px;
+  width: 50px;
+}
+.column ul li .img img {
+  width: 100%;
+  border-radius: 50rem;
+  object-fit: cover;
+  height: 100%;
+}
+.column ul li .user-info {
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+}
+.column li .btns {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+}
+.column ul li .user-info h4 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 175px;
+}
+.column ul li .user-info span.username {
+  font-size: 14px;
+}
+.column ul li .user-info span.username::before {
+  content: '@';
+  font-family: sans-serif;
+}
+.column ul li span.material-symbols-outlined {
+  cursor: pointer;
+  transition: 0.3s;
+  color: var(--heading-color);
+  font-size: 30px;
+  padding-right: 5px;
+}
+.column ul li span.material-symbols-outlined:hover {
+  color: var(--primary-color);
+}
+.column .user-info span {
+  font-size: 14px;
+  color: var(--heading-color);
+}
+/* chat column */
+.chats-column .last-message {
+  max-width: inherit;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  width: 270px;
+  font-size: 13px;
+  color: #aaa;
+  border-radius: 5px;
+  border: 1px solid #8d69f117;
+  padding: 1px 4px;
+  position: relative;
+}
+.chats-column .btns span.material-symbols-outlined.mail {
+  position: relative;
+}
+.chats-column .btns span.material-symbols-outlined.mail.active::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #f00;
+  top: 1px;
+  right: 2px;
+  border-radius: 50rem;
+}

@@ -1,0 +1,113 @@
+.chat-box {
+  display: flex;
+  flex-direction: column;
+}
+.chat-box .messages {
+  border-top: 1px solid #eee;
+  height: 200px;
+  padding: 15px 5px 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14px;
+}
+.chat-box form.send-message {
+  display: flex;
+  gap: 5px;
+  height: 30px;
+  font-size: 14px;
+  margin-top: 10px;
+}
+.chat-box form.send-message input {
+  border-radius: 0.1rem;
+  transition: 0.3s;
+  font-family: 'Poppins';
+  font-size: 12px;
+}
+.chat-box form.send-message input:focus {
+  outline: none;
+  border: 1px solid #6c4ebe61;
+}
+.chat-box form.send-message button {
+  font-family: 'Poppins';
+  font-size: 12px;
+  padding: 1px 8px;
+  border: 2px solid var(--primary-color);
+  background-color: var(--primary-color);
+  border-radius: 50rem;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.chat-box form.send-message button:hover {
+  border: 2px solid var(--darker-primary-color);
+  background-color: var(--darker-primary-color);
+}
+.chat-box .message-holder {
+  display: flex;
+  flex-direction: column;
+}
+.chat-box .sender {
+  text-align: start;
+  max-width: 80%;
+}
+.chat-box .sender span.message {
+  overflow-wrap: break-word;
+  padding: 2px 5px;
+  border-radius: 0.3rem;
+
+  background-color: #8d69f10c;
+}
+.chat-box .reciver {
+  text-align: end;
+  max-width: 80%;
+  align-self: flex-end;
+}
+.chat-box .reciver span.message {
+  overflow-wrap: break-word;
+  padding: 2px 5px;
+  border-radius: 0.3rem;
+  color: var(--heading-color);
+  font-weight: 500;
+  background-color: #d132673a;
+}
+.chat-box .messages::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: #f5f5f5;
+}
+
+.chat-box .messages::-webkit-scrollbar {
+  width: 8px;
+  background-color: #f5f5f5;
+}
+
+.chat-box .messages::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(90, 90, 90, 0.082);
+  background-color: var(--heading-color);
+}
+.chat-box {
+  overflow: hidden;
+}
+.chat-box .box {
+  max-height: 267px;
+  margin-top: -270px;
+  transition: margin 0.3s ease-in;
+}
+.chat-box.active .box {
+  margin-top: 0;
+}
+.chat-box small.time {
+  color: #aaa;
+  font-size: 10px;
+}
+.chat-box span.chat-created-at {
+  font-size: 10px;
+  color: #aaa;
+  border-bottom: 1px solid #eee;
+  width: fit-content;
+  margin: 0 auto 8px;
+  user-select: none;
+}

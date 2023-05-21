@@ -1,0 +1,157 @@
+.menu {
+  position: absolute;
+  background-color: #fff;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 15px 10px;
+  box-shadow: rgba(149, 157, 165, 0.5) 0px 6px 10px;
+  border-radius: 0.3rem;
+  top: 200%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1000;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.menu.active {
+  z-index: 1000;
+  opacity: 1;
+}
+.menu::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  margin: 0 auto;
+  width: 0;
+  height: 0;
+  border-bottom: 10px solid #ffffff;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.menu h3 {
+  color: var(--heading-color);
+}
+.menu .user {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 15px 0;
+}
+.menu li:not(:last-of-type) {
+  border-bottom: 1px solid #eee;
+}
+.menu .img {
+  width: 50px;
+  height: 50px;
+}
+.menu .img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50rem;
+  object-fit: cover;
+}
+.menu .user-holder {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.menu .user-info {
+  margin: 0;
+}
+.menu h5 {
+  margin: 0;
+}
+.menu .username {
+  font-size: 14px;
+  color: var(--heading-color);
+}
+.menu .username::before {
+  content: '@';
+  font-family: sans-serif;
+}
+.menu button.btn {
+  padding: 8px 14px;
+}
+.menu .empty-menu {
+  color: #aaa;
+  font-size: 14px;
+  font-weight: 300;
+}
+/* arrows */
+.friend-request-menu .material-symbols-outlined,
+.pending-request-menu .material-symbols-outlined {
+  position: relative;
+}
+.friend-request-menu .material-symbols-outlined::after {
+  content: '';
+  position: absolute;
+  right: 2px;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-right: 4px solid var(--heading-color);
+  top: 45%;
+  transform: translateY(-50%);
+}
+.friend-request-menu .material-symbols-outlined::before {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 2px;
+  background-color: var(--heading-color);
+  right: -3px;
+  top: 45%;
+  transform: translateY(-50%);
+}
+.pending-request-menu .material-symbols-outlined::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  border-left: 4px solid var(--heading-color);
+  top: 45%;
+  transform: translateY(-50%);
+}
+.pending-request-menu .material-symbols-outlined::before {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 2px;
+  background-color: var(--heading-color);
+  right: 1px;
+  top: 45%;
+  transform: translateY(-50%);
+}
+.pending-request-menu .material-symbols-outlined:hover::before,
+.friend-request-menu .material-symbols-outlined:hover::before {
+  transition: 0.3s;
+  background-color: var(--primary-color);
+}
+.pending-request-menu .material-symbols-outlined:hover::after {
+  transition: 0.3s;
+  border-left: 4px solid var(--primary-color);
+}
+.friend-request-menu .material-symbols-outlined:hover::after {
+  transition: 0.3s;
+  border-right: 4px solid var(--primary-color);
+}
+.menu .buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.friend-request-menu .menu .buttons .btn {
+  padding: 3px 10px;
+}
+.menu button.btn.red {
+  border-color: var(--highlight-color);
+  color: var(--highlight-color);
+}
+.menu button.btn.red:hover {
+  background: var(--highlight-color);
+  color: #fff;
+}

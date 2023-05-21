@@ -1,26 +1,8 @@
-.App {
-  height: 100vh;
+/* .App {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.App {
-  background: #282c34;
-}
-
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-div,
-span {
-  color: #efefef;
-}
-
-.App-link {
-  color: #61dafb;
+} */
+.App .container {
+  max-width: 1200px;
+  margin: 70px auto 0;
+  padding: 0 60px;
 }

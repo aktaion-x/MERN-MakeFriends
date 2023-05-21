@@ -29,6 +29,20 @@ const requestFriendship = async (req, res) => {
   }
 };
 
+const cancelRequestFriendship = async (req, res) => {
+  const senderId = req.user._id;
+  const reciverId = req.params._id;
+  if (!isValidId(reciverId)) {
+    return res.status(400).json({ success: false, message: 'ID is not valid!' });
+  }
+  try {
+    await User.findByIdAndUpdate(senderId, { $pull: { friendRequests: reciverId } });
+    res.status(200).json({ success: true, message: "Friendship request have been canceled!!" });
+  } catch (error) {
+    return res.status(400).json({ success: false, message: error.message });
+  }
+};
+
 const acceptFriendship = async (req, res) => {
   const senderId = req.user._id;
   const reciverId = req.params._id;
@@ -53,6 +67,28 @@ const acceptFriendship = async (req, res) => {
     await senderUser.save();
     await reciverUser.save();
     res.status(200).json({ success: true, message: "Congrats! you are Friends now!!" });
+  } catch (error) {
+    return res.status(400).json({ success: false, message: error.message });
+  }
+};
+
+const cancelFriendship = async (req, res) => {
+  const senderId = req.user._id;
+  const reciverId = req.params._id;
+  if (!isValidId(reciverId)) {
+    return res.status(400).json({ success: false, message: 'ID is not valid!' });
+  }
+  try {
+
+    const reciverUser = await User.findById(reciverId);
+    if (!reciverUser) {
+      return res.status(400).json({ success: false, message: 'User does not exists!' });
+    }
+
+    await reciverUser.updateOne({ $pull: { friendRequests: senderId } });
+    await reciverUser.save();
+    res.status(200).json({ success: true, message: "Friendship request have been canceled!!" });
+
   } catch (error) {
     return res.status(400).json({ success: false, message: error.message });
   }
@@ -89,4 +125,4 @@ const removeFriendship = async (req, res) => {
 
 
 
-module.exports = { requestFriendship, acceptFriendship, removeFriendship };
+module.exports = { requestFriendship, acceptFriendship, removeFriendship, cancelRequestFriendship, cancelFriendship };

@@ -52,6 +52,8 @@ userSchema.statics.signup = async function (email, username, name, password, reP
   if (validationError) {
     throw Error(validationError);
   }
+  username = username.toLowerCase();
+  email = email.toLowerCase();
   const isEmailExists = await this.findOne({ email });
   if (isEmailExists) {
     throw Error('Email already in use');
@@ -84,47 +86,21 @@ userSchema.statics.login = async function (identifier, password) {
   if (validationError) {
     throw Error(validationError);
   }
+  identifier = identifier.toLowerCase();
   if (isEmail(identifier)) {
     var user = await this.findOne({ email: identifier });
   } else {
     var user = await this.findOne({ username: identifier });
   }
+  if (!user) {
+    throw Error('user doesn\'t exists!');
+  }
   const match = await bcrypt.compare(password, user.password);
   if (!match) {
-    throw Error('Incorect passowrd');
+    throw Error('Incorect passowrd!');
   }
   return user;
 };
 
 
 module.exports = mongoose.model('User', userSchema);
-
-
-
-/* 
-const productSchema = new Schema({
-  name: String,
-  image: {
-    public_id: {
-      type: String,
-      required: true
-    },
-    url: {
-      type: String,
-      required: true
-    }
-  }
-}, { timestamps: true });
-
-module.exports = model('Product', productSchema);
-*/
-
-
-/* 
-User.findById(reciverId)
-user.friends.includes(reciverId)
-user.friendRequests.includes(reciverId)
-
-
-
-*/

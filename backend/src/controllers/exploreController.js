@@ -6,9 +6,8 @@ const friendshipRequests = async (req, res) => {
   try {
     const user = await User.findOne({ _id }).populate('friendRequests', 'username email name userImage').exec();
     const friendRequests = user.friendRequests;
-    res.status(200).json({ friendRequests });
+    res.status(200).json({ data: friendRequests });
   } catch (error) {
-    console.log(error);
     res.status(400).json({ error: error.message });
 
   }
@@ -24,10 +23,9 @@ const friendshipAccepts = async (req, res) => {
       'email',
       'name'
     ]);
-    res.status(200).json({ users });
+    res.status(200).json({ data: users });
 
   } catch (error) {
-    console.log(error);
     res.status(400).json({ error: error.message });
   }
 };
@@ -37,38 +35,35 @@ const friends = async (req, res) => {
   try {
     const user = await User.findOne({ _id }).populate('friends', 'username email name userImage').exec();
     const friends = user.friends;
-    res.status(200).json({ friends });
+    res.status(200).json({ data: friends });
 
   } catch (error) {
-    console.log(error);
     res.status(400).json({ error: error.message });
-
   }
 };
 
 const allUsers = async (req, res) => {
   const _id = req.user._id;
   try {
+    const user = await User.findById(_id);
     const users = await User.find({
       $and: [
         { friendRequests: { $nin: [_id] } },
         { friends: { $nin: [_id] } },
         { _id: { $nin: _id } },
+        { _id: { $nin: user.friendRequests } },
       ]
     });
-    res.status(200).json({ users });
+    res.status(200).json({ data: users });
   } catch (error) {
-    console.log(error);
     res.status(400).json({ error: error.message });
-
   }
 };
 
 const generateToken = async (req, res) => {
   const _id = req.params._id;
-  console.log(_id);
   const token = jwt.sign({ _id }, process.env.SECRET, { expiresIn: '3d' });
-  res.status(200).json({ token });
+  res.status(200).json({ data: token });
 };
 
 module.exports = { friendshipRequests, friends, friendshipAccepts, allUsers, generateToken };
