@@ -11,11 +11,15 @@
 }
 
 /* base styles */
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: Poppins, sans-serif;
   margin: 0;
   font-size: 1.1em;
   background: var(--bg-color);
+  padding-top: 60px;
 }
 ul,
 li,

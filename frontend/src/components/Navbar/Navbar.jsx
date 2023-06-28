@@ -13,7 +13,6 @@ import { HelperContext } from '../../contexts/HelperContext';
 // import SearchBox from '../boxes/SearchBox/SearchBox';
 import PendingRequestsMenu from '../menus/PendingRequestsMenu/PendingRequestsMenu';
 import FriendRequestsMenu from '../menus/FriendRequestsMenu/FriendRequestsMenu';
-import NotificationMenu from '../menus/NotificationMenu/NotificationMenu';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -45,7 +44,7 @@ const Navbar = () => {
     <div className="nav-container">
       <nav>
         <h1 className="logo">
-          <Link to="/">chatApp</Link>
+          <Link to="/">makeFriends</Link>
         </h1>
         {/* {user && <SearchBox />} */}
         <div className="navbar">
@@ -69,9 +68,6 @@ const Navbar = () => {
                 </li>
                 <li className="dropdown">
                   <PendingRequestsMenu toggleMenu={toggleMenu} />
-                </li>
-                <li className="dropdown">
-                  <NotificationMenu toggleMenu={toggleMenu} />
                 </li>
                 <li className="logout">
                   <button onClick={handleLogout} className="btn">

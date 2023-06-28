@@ -1,0 +1,21 @@
+.About > div {
+  margin-bottom: 30px;
+}
+.About .header h1 {
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.About h2 {
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.About ul {
+  padding: 0 0 0 20px;
+  list-style: disc;
+}
+.About ul li {
+  margin-bottom: 5px;
+}
+.About .conclusion p {
+  padding: 0 0 0 10px;
+}

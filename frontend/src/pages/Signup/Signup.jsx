@@ -36,6 +36,7 @@ const Signup = () => {
     e.preventDefault();
     await signup(email, username, name, password, rePassword, thumbnail);
   };
+
   return (
     <div className="signup">
       <form onSubmit={handleSubmit}>
@@ -48,7 +49,12 @@ const Signup = () => {
         </label>
         <label>
           <span>Username</span>
-          <input value={username} onChange={(e) => setUsername(e.target.value)} required type="text" />
+          <input
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+            type="text"
+          />
           <small>Username must be at least 3 chatacter.</small>
         </label>
         <label>
@@ -57,12 +63,25 @@ const Signup = () => {
         </label>
         <label>
           <span>Password</span>
-          <input value={password} onChange={(e) => setPassword(e.target.value)} required type="password" />
-          <small>Password must be at least 8 characters and contain one lowercase letter, one number, and one symbol.</small>
+          <input
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            type="password"
+          />
+          <small>
+            Password must be at least 8 characters and contain one lowercase letter, one number, and
+            one symbol.
+          </small>
         </label>
         <label>
           <span>Repeat Password</span>
-          <input value={rePassword} onChange={(e) => setRePassword(e.target.value)} required type="password" />
+          <input
+            value={rePassword}
+            onChange={(e) => setRePassword(e.target.value)}
+            required
+            type="password"
+          />
         </label>
         <label>
           <span>Profile Image</span>

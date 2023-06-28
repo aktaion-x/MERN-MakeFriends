@@ -16,6 +16,7 @@ const useSignup = () => {
       formData.append('password', password);
       formData.append('rePassword', rePassword);
       formData.append('image', image);
+      console.log('here');
       const res = await fetch('http://127.0.0.1:5000/api/v1/user/signup', {
         method: 'POST',
         body: formData
@@ -23,6 +24,7 @@ const useSignup = () => {
       const json = await res.json();
       if (!res.ok) {
         setError(json.message);
+        console.log(json);
         setIsPending(false);
         return;
       }
@@ -31,6 +33,7 @@ const useSignup = () => {
       dispatch({ type: 'LOGIN', payload: json });
       return json;
     } catch (error) {
+      console.log(error);
       setError(error.message);
       setIsPending(false);
     }

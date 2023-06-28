@@ -25,6 +25,10 @@
 }
 .home .left-side .btn a {
   text-decoration: none;
+  color: var(--primary-color);
+}
+.home .left-side .btn:hover a {
+  color: #fff;
 }
 .home .right-side {
   width: 700px;

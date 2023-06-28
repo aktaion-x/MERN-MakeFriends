@@ -49,7 +49,7 @@ const FriendsColumn = () => {
                   </div>
                 </div>
                 <div className="btns">
-                  <span className="material-symbols-outlined">send</span>
+                  {/* <span className="material-symbols-outlined">send</span> */}
                   <span onClick={(_) => handleRemoveClick(friend)} className="material-symbols-outlined" style={{ color: 'red' }}>
                     person_remove
                   </span>

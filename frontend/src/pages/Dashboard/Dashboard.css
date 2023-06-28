@@ -1,9 +1,17 @@
 .dashboard {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   justify-items: center;
-  grid-column-gap: 50px;
+  gap: 50px;
 }
 .dashboard .column {
   height: fit-content;
+  max-width: 400px;
+}
+
+@media (max-width: 1200px) {
+  .dashboard {
+    display: grid;
+    grid-template-columns: none;
+  }
 }

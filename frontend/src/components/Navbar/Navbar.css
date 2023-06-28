@@ -1,6 +1,13 @@
 .nav-container {
   background: var(--bg-color);
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 60px;
+  z-index: 999999;
+  align-items: center;
+  display: flex;
 }
 nav {
   display: flex;
@@ -20,15 +27,31 @@ nav .navbar > ul {
   gap: 20px;
   align-items: center;
 }
+nav h1.logo a {
+  color: var(--primary-color);
+}
+@media (max-width: 767px) {
+  nav {
+    width: 90%;
+  }
+  nav .navbar > ul {
+    gap: 10px;
+  }
+  nav h1.logo {
+    font-size: 20px;
+  }
+  .logout .btn {
+    padding: 7px 9px;
+    font-size: 16px;
+  }
+}
 nav .navbar {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 75px;
 }
-nav .navbar li.logout {
-  margin-left: 20px;
-}
+
 nav .navbar li.dropdown span.material-symbols-outlined {
   display: flex;
   align-items: center;
@@ -53,4 +76,20 @@ nav .logged-user {
   display: flex;
   flex-direction: column;
   color: var(--heading-color);
+}
+
+@media (max-width: 767px) {
+  nav .navbar li.dropdown > div {
+    position: initial;
+  }
+  nav .menu,
+  nav .menu.active {
+    max-width: 270px;
+    transform: translateX(-50%);
+    top: 65px;
+    left: 50%;
+  }
+  nav .menu.active::before {
+    /* content: none; */
+  }
 }

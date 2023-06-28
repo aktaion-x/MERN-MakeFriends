@@ -19,8 +19,9 @@ const useLogin = () => {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ identifier, password: 'asdZXC123@' })
+        body: JSON.stringify({ identifier, password })
       });
+      console.log(res);
       const json = await res.json();
       if (!res.ok) {
         setError(json.message);

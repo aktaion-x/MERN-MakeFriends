@@ -3,6 +3,11 @@
 } */
 .App .container {
   max-width: 1200px;
-  margin: 70px auto 0;
+  margin: 70px auto;
   padding: 0 60px;
+}
+@media (max-width: 767px) {
+  .App .container {
+    padding: 0 40px;
+  }
 }
