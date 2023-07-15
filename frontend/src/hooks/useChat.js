@@ -9,7 +9,7 @@ const useChat = () => {
     setError(null);
     setIsPending(true);
     try {
-      const res = await fetch(`http://127.0.0.1:5000/api/v1/chat/getChat/${chat_id}`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND}api/v1/chat/getChat/${chat_id}`, {
         headers: {
           Authorization: `bearer ${user.token}`,
         },
@@ -32,7 +32,7 @@ const useChat = () => {
     setError(null);
     setIsPending(true);
     try {
-      const res = await fetch(`http://127.0.0.1:5000/api/v1/chat/sendMessage/`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND}api/v1/chat/sendMessage/`, {
         method: 'POST',
         body: JSON.stringify({ reciverId, message }),
         headers: {
@@ -59,7 +59,7 @@ const useChat = () => {
     setIsPending(true);
     try {
 
-      const res = await fetch(`http://127.0.0.1:5000/api/v1/chat/deleteMessage/`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND}api/v1/chat/deleteMessage/`, {
         method: 'POST',
         headers: {
           Authorization: `bearer ${user.token}`,

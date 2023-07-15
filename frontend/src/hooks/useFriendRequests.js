@@ -9,7 +9,7 @@ const useFriendRequests = () => {
     setError(null);
     setIsPending(true);
     try {
-      const res = await fetch('http://127.0.0.1:5000/api/v1/explore/friendshipAccepts', {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND}api/v1/explore/friendshipAccepts`, {
         headers: {
           Authorization: `bearer ${user.token}`,
         },
@@ -32,7 +32,7 @@ const useFriendRequests = () => {
     setError(null);
     setIsPending(true);
     try {
-      const res = await fetch(`http://127.0.0.1:5000/api/v1/friendship/accept/${user_id}`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND}api/v1/friendship/accept/${user_id}`, {
         method: 'POST',
         headers: {
           Authorization: `bearer ${user.token}`,
@@ -56,7 +56,7 @@ const useFriendRequests = () => {
     setError(null);
     setIsPending(true);
     try {
-      const res = await fetch(`http://127.0.0.1:5000/api/v1/friendship/cancel/${user_id}`, {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND}api/v1/friendship/cancel/${user_id}`, {
         method: 'POST',
         headers: {
           Authorization: `bearer ${user.token}`,

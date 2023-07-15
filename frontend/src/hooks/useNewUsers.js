@@ -9,7 +9,7 @@ const useNewUsers = () => {
     setError(null);
     setIsPending(true);
     try {
-      const res = await fetch('http://127.0.0.1:5000/api/v1/explore/allUsers', {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND}api/v1/explore/allUsers`, {
         headers: {
           Authorization: `bearer ${user.token}`,
         },
