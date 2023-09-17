@@ -9,7 +9,7 @@ const usePendingRequests = () => {
     setError(null);
     setIsPending(true);
     try {
-      const res = await fetch(`${process.env.REACT_APP_BACKEND}api/v1/friendship/request/${user_id}`, {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND}api/v1/friendship/request/${user_id}`, {
         method: 'POST',
         headers: {
           Authorization: `bearer ${user.token}`,
@@ -33,7 +33,7 @@ const usePendingRequests = () => {
     setError(null);
     setIsPending(true);
     try {
-      const res = await fetch(`${process.env.REACT_APP_BACKEND}api/v1/explore/friendshipRequests`, {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND}api/v1/explore/friendshipRequests`, {
         headers: {
           Authorization: `bearer ${user.token}`,
         },
@@ -56,7 +56,7 @@ const usePendingRequests = () => {
     setError(null);
     setIsPending(true);
     try {
-      const res = await fetch(`${process.env.REACT_APP_BACKEND}api/v1/friendship/cancelRequest/${user_id}`, {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND}api/v1/friendship/cancelRequest/${user_id}`, {
         method: 'POST',
         headers: {
           Authorization: `bearer ${user.token}`,

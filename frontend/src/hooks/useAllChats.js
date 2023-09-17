@@ -9,7 +9,7 @@ const useAllChats = () => {
     setError(null);
     setIsPending(true);
     try {
-      const res = await fetch(`${process.env.REACT_APP_BACKEND}api/v1/chat/allChats`, {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND}api/v1/chat/allChats`, {
         headers: {
           Authorization: `bearer ${user.token}`,
         },
@@ -32,7 +32,7 @@ const useAllChats = () => {
     setError(null);
     try {
 
-      const res = await fetch(`${process.env.REACT_APP_BACKEND}api/v1/chat/chatSeen`, {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND}api/v1/chat/chatSeen`, {
         method: 'POST',
         body: JSON.stringify({ chatId: chat_id }),
         headers: {

@@ -9,7 +9,7 @@ const useFriends = () => {
     setError(null);
     setIsPending(true);
     try {
-      const res = await fetch(`${process.env.REACT_APP_BACKEND}api/v1/explore/friends`, {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND}api/v1/explore/friends`, {
         headers: {
           Authorization: `bearer ${user.token}`,
         },
@@ -33,7 +33,7 @@ const useFriends = () => {
     setIsPending(true);
     try {
 
-      const res = await fetch(`${process.env.REACT_APP_BACKEND}api/v1/friendship/remove/${user_id}`, {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND}api/v1/friendship/remove/${user_id}`, {
         method: 'POST',
         headers: {
           Authorization: `bearer ${user.token}`,

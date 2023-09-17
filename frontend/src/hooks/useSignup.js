@@ -17,7 +17,7 @@ const useSignup = () => {
       formData.append('rePassword', rePassword);
       formData.append('image', image);
       console.log('here');
-      const res = await fetch(`${process.env.REACT_APP_BACKEND}api/v1/user/signup`, {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND}api/v1/user/signup`, {
         method: 'POST',
         body: formData
       });
